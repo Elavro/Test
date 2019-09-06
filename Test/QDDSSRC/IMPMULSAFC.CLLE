@@ -1,0 +1,8 @@
+pgm
+ 
+  callprc impmulsfc1
+  callprc impmulsfc2
+  callprc impmulsfc3
+  callprc impmulsfc4
+ 
+endpgm
