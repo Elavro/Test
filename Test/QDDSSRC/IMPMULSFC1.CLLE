@@ -1,0 +1,16 @@
+pgm
+  DCL  &DIR     *CHAR 100 VALUE('AS400DIR/OXYPAS/MULTISAFEPAY CORTINA/')
+  DCL  &FILE    *CHAR  10 VALUE('QMULSAF')
+  DCL  &SUFF    *CHAR   3 VALUE('CSV')
+  DCL  &AS400   *CHAR   1 VALUE('Y')
+ 
+  CRTPF      FILE(CORTINAF/IMPMULSAF) RCDLEN(512)
+  monmsg (cpf0000)
+  clrpfm cortinaf/impmulsaf
+  monmsg (cpf0000)
+  call getlnk parm(&dir &file &suff &AS400)
+  callprc impmulsaf1 parm((&DIR) ('01'))
+  callprc    impmulsf2 parm('01')
+  call inboek parm('@')
+ 
+einde: endpgm
